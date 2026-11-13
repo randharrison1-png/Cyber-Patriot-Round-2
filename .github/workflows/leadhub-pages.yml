@@ -1,0 +1,40 @@
+name: Deploy LeadHub to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - '.github/workflows/leadhub-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: leadhub-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    name: Publish LeadHub
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload LeadHub site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./site
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
