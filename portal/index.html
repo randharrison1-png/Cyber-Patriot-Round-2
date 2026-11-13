@@ -69,7 +69,14 @@
 
     <div class="section-title workspace-heading" id="workspace"><div><span class="section-index">02 / COLLABORATE</span><h2>Shared report workspace</h2><p>Paste a report, save it, and share the link. Anyone with the link can view and edit the same document.</p></div><span class="section-rule" aria-hidden="true"></span></div>
 
-    <section class="workspace-card">
+    <section class="workspace-card" style="padding:30px; border-color:#385f53; background:linear-gradient(135deg,#102c2a,#0b1420)">
+      <span class="section-index">LIVE REPORT EDITOR</span>
+      <h3 style="font-family:var(--display);font-size:28px;letter-spacing:-.6px;margin:13px 0">Shared pastes, hosted with live storage.</h3>
+      <p style="max-width:680px;color:#9cb6ad;line-height:1.8;font-size:14px;margin:0 0 23px">Open our companion collaborative workspace to create a report, share a URL, and edit it from a different computer. Reports are stored on the live service, rather than in this static GitHub frontend.</p>
+      <a class="btn btn-primary" href="https://cyber-patriot-lead-hub-40214cf8.base44.app" target="_blank" rel="noopener noreferrer">Open live paste workspace ↗</a>
+      <a class="btn btn-quiet" style="margin-left:8px" href="https://app.base44.com/apps/6af7337f4f375d6b40214cf8/editor/preview" target="_blank" rel="noopener noreferrer">Workspace editor ↗</a>
+    </section>
+    <section class="workspace-card" id="legacyEditor" hidden>
       <div class="workspace-toolbar">
         <div class="workspace-tabs"><span class="tab-active"><span class="tab-icon">≡</span> REPORT EDITOR</span><span class="tab-muted"><span class="live-dot"></span> SYNC EVERY 6S</span></div>
         <div class="workspace-toolbar-actions"><button type="button" class="tiny-button" id="newBtn">+ New report</button><button type="button" class="tiny-button" id="importBtn">↑ Import .txt / .log</button><input type="file" id="importFile" accept=".txt,.log,.out,.md,text/plain" hidden></div>
@@ -111,6 +118,6 @@ Anyone with the saved share link can read and edit this report from another devi
     <footer><span>© 2026 LEADHUB <span class="footer-separator">/</span> BUILT FOR CYBERPATRIOT TEAMS</span><a href="https://github.com/randharrison1-png/Cyber-Patriot-Round-2" target="_blank" rel="noopener noreferrer">VIEW REPOSITORY ↗</a></footer>
   </main>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js"></script>
+  
 </body>
 </html>
