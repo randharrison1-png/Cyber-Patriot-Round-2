@@ -3,121 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080e16">
-  <meta name="description" content="CyberPatriot lead-finder scripts and live collaborative report sharing for Windows, Server and Debian.">
-  <title>LeadHub — CyberPatriot report workspace</title>
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1621'/%3E%3Cpath d='m17 21 12 11-12 11M33 43h14' fill='none' stroke='%235ff0c9' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="refresh" content="0;url=https://cyber-patriot-lead-hub-40214cf8.base44.app/">
+  <link rel="canonical" href="https://cyber-patriot-lead-hub-40214cf8.base44.app/">
+  <title>LeadHub has moved to Base44</title>
+  <style>
+    body{font:16px/1.6 Inter,Arial,sans-serif;margin:0;padding:32px;background:#f7f7f5;color:#17251e}
+    main{max-width:700px}a{color:#247a58}a:focus-visible{outline:2px solid #247a58;outline-offset:4px}
+  </style>
+  <script>window.location.replace("https://cyber-patriot-lead-hub-40214cf8.base44.app/" + window.location.search + window.location.hash);</script>
 </head>
 <body>
-  <div class="aurora aurora-one" aria-hidden="true"></div>
-  <div class="aurora aurora-two" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <a class="brand" href="/" aria-label="LeadHub home">
-      <span class="brand-icon"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m7 9 8 7-8 7M18 23h8" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <span>LEAD<span class="brand-accent">HUB</span><small>CYBERPATRIOT TOOLS</small></span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="#scripts">Scripts</a>
-      <a href="#workspace">Report workspace</a>
-      <a href="https://github.com/randharrison1-png/Cyber-Patriot-Round-2" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-    </nav>
-    <a class="header-action" href="#workspace"><span class="status-dot"></span> OPEN WORKSPACE <span aria-hidden="true">↗</span></a>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <div class="eyebrow"><span class="eyebrow-line"></span> THE CYBERPATRIOT FIELD WORKSPACE <span class="hero-version">/ V 1.0</span></div>
-      <h1>Find the next point.<br><span>Share the evidence.</span></h1>
-      <p>Run purpose-built lead-finder scripts, turn raw findings into a shared report, and pick up right where your team left off—on any device.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#workspace">Start a shared report <span aria-hidden="true">↗</span></a>
-        <a class="btn btn-quiet" href="#scripts">Browse scripts <span aria-hidden="true">↓</span></a>
-      </div>
-      <div class="hero-glow" aria-hidden="true">01<span>/</span>02</div>
-    </section>
-
-    <div class="overview" aria-label="At a glance">
-      <div class="overview-cell"><strong>02</strong><span>LEAD FINDERS</span></div>
-      <div class="overview-cell"><strong>03</strong><span>SUPPORTED SYSTEMS</span></div>
-      <div class="overview-cell"><strong><i class="live-dot"></i> LIVE</strong><span>CROSS-DEVICE SYNC</span></div>
-      <div class="overview-cell"><strong>LINK</strong><span>EDITABLE SHARING</span></div>
-    </div>
-
-    <div class="section-title" id="scripts"><div><span class="section-index">01 / TOOLS</span><h2>Scanners &amp; utilities</h2><p>Download the script for your competition image. Review configuration and permitted repairs before running.</p></div><span class="section-rule" aria-hidden="true"></span></div>
-
-    <div class="script-grid">
-      <article class="script-card">
-        <div class="script-top"><div class="script-symbol windows">⊞</div><span class="script-label">POWERSHELL <span>·</span> WINDOWS</span></div>
-        <div class="script-copy"><h3>Windows Lead Finder</h3><p>Inspect scored configurations, policy, services, accounts, and suspicious files on both workstation and server images.</p></div>
-        <div class="chip-row"><span class="chip">WINDOWS 11</span><span class="chip">SERVER 2022</span><span class="chip">PS 5.1+</span></div>
-        <div class="snippet-head"><span>REPORT-ONLY COMMAND</span><button type="button" class="text-action" data-copy="powershell -ExecutionPolicy Bypass -File .\Leads.ps1 -ReportOnly">COPY</button></div>
-        <code class="command">powershell -ExecutionPolicy Bypass -File .\Leads.ps1 -ReportOnly</code>
-        <div class="script-bottom"><a class="btn btn-download" href="/scripts/Leads.ps1" download>↓ Download .ps1</a><a class="source-link" target="_blank" rel="noopener noreferrer" href="https://github.com/randharrison1-png/Cyber-Patriot-Round-2/blob/main/portal/scripts/Leads.ps1">Source ↗</a></div>
-      </article>
-
-      <article class="script-card">
-        <div class="script-top"><div class="script-symbol linux">$_</div><span class="script-label">BASH <span>·</span> DEBIAN</span></div>
-        <div class="script-copy"><h3>Linux Lead Finder</h3><p>Review users, SSH, firewall, packages, active services, privileged files, and system configuration for potential scoring leads.</p></div>
-        <div class="chip-row"><span class="chip">DEBIAN 12</span><span class="chip">BASH</span><span class="chip">SUDO</span></div>
-        <div class="snippet-head"><span>REPORT-ONLY COMMAND</span><button type="button" class="text-action" data-copy="sudo bash leads.sh --report-only">COPY</button></div>
-        <code class="command">sudo bash leads.sh --report-only</code>
-        <div class="script-bottom"><a class="btn btn-download" href="/scripts/leads.sh" download>↓ Download .sh</a><a class="source-link" target="_blank" rel="noopener noreferrer" href="https://github.com/randharrison1-png/Cyber-Patriot-Round-2/blob/main/portal/scripts/leads.sh">Source ↗</a></div>
-      </article>
-    </div>
-
-    <div class="section-title workspace-heading" id="workspace"><div><span class="section-index">02 / COLLABORATE</span><h2>Shared report workspace</h2><p>Paste a report, save it, and share the link. Anyone with the link can view and edit the same document.</p></div><span class="section-rule" aria-hidden="true"></span></div>
-
-    <section class="workspace-card" style="padding:30px; border-color:#385f53; background:linear-gradient(135deg,#102c2a,#0b1420)">
-      <span class="section-index">LIVE REPORT EDITOR</span>
-      <h3 style="font-family:var(--display);font-size:28px;letter-spacing:-.6px;margin:13px 0">Shared pastes, hosted with live storage.</h3>
-      <p style="max-width:680px;color:#9cb6ad;line-height:1.8;font-size:14px;margin:0 0 23px">Open our companion collaborative workspace to create a report, share a URL, and edit it from a different computer. Reports are stored on the live service, rather than in this static GitHub frontend.</p>
-      <a class="btn btn-primary" href="https://cyber-patriot-lead-hub-40214cf8.base44.app" target="_blank" rel="noopener noreferrer">Open live paste workspace ↗</a>
-      <a class="btn btn-quiet" style="margin-left:8px" href="https://app.base44.com/apps/6af7337f4f375d6b40214cf8/editor/preview" target="_blank" rel="noopener noreferrer">Workspace editor ↗</a>
-    </section>
-    <section class="workspace-card" id="legacyEditor" hidden>
-      <div class="workspace-toolbar">
-        <div class="workspace-tabs"><span class="tab-active"><span class="tab-icon">≡</span> REPORT EDITOR</span><span class="tab-muted"><span class="live-dot"></span> SYNC EVERY 6S</span></div>
-        <div class="workspace-toolbar-actions"><button type="button" class="tiny-button" id="newBtn">+ New report</button><button type="button" class="tiny-button" id="importBtn">↑ Import .txt / .log</button><input type="file" id="importFile" accept=".txt,.log,.out,.md,text/plain" hidden></div>
-      </div>
-
-      <div class="workspace-inner">
-        <div class="workspace-topline">
-          <div class="field"><label for="reportTitle">REPORT TITLE</label><input type="text" id="reportTitle" maxlength="90" placeholder="e.g. Server 2022 — Round 2 findings" autocomplete="off"></div>
-          <div class="open-field"><label for="openId">OPEN EXISTING REPORT</label><div class="open-row"><input type="text" id="openId" placeholder="Paste share link or report ID" autocomplete="off"><button type="button" id="openBtn">OPEN <span aria-hidden="true">↗</span></button></div></div>
-        </div>
-        <div class="editor-head"><label for="reportText">REPORT CONTENT</label><span id="editorMeta">0 lines · 0 characters</span></div>
-        <textarea id="reportText" spellcheck="false" placeholder="Paste your lead finder report here…
-
-LEADS REPORT
-##### A. ALREADY REPAIRED
-##### B. OPEN LEADS
-##### C. FULL INVENTORY
-
-Anyone with the saved share link can read and edit this report from another device."></textarea>
-        <div class="editor-footer"><div class="sync-indicator"><span id="syncLight" class="sync-light"></span><span id="syncText" role="status" aria-live="polite">Ready to create a report</span></div><span id="lastSaved">UNSAVED DRAFT</span></div>
-
-        <div class="share-panel" id="sharePanel" hidden>
-          <div class="share-panel-heading"><strong>SHAREABLE EDIT LINK</strong><span><span class="live-dot"></span> LINK ACTIVE</span></div>
-          <div class="share-controls"><input type="text" id="shareUrl" readonly aria-label="Shareable report URL"><button type="button" id="copyLinkBtn">COPY LINK ↗</button></div>
-          <p>Send this URL to a teammate, or open it on another device. Anyone with the URL can read and overwrite the report.</p>
-        </div>
-
-        <div id="remoteNotice" class="remote-notice" hidden><span>A newer version was saved by someone else. Your unsaved edits are still here.</span><button type="button" id="reloadBtn">LOAD LATEST</button></div>
-
-        <div class="bottom-actions">
-          <div class="action-left"><button type="button" id="copyTextBtn" class="btn btn-quiet">Copy text</button><button type="button" id="downloadTextBtn" class="btn btn-quiet">Download .txt</button></div>
-          <button type="button" id="saveBtn" class="btn btn-primary">Save &amp; create link <span aria-hidden="true">↗</span></button>
-        </div>
-      </div>
-    </section>
-
-    <aside class="safety-note"><span class="safety-mark">!</span><div><strong>Before sharing</strong><p>These scripts can collect computer names, accounts, file paths and even lines from files that appear to contain passwords. Review and remove passwords, keys, tokens, personal information and other sensitive data. Shared links are unlisted, not private; anyone with a link can edit.</p></div></aside>
-
-    <footer><span>© 2026 LEADHUB <span class="footer-separator">/</span> BUILT FOR CYBERPATRIOT TEAMS</span><a href="https://github.com/randharrison1-png/Cyber-Patriot-Round-2" target="_blank" rel="noopener noreferrer">VIEW REPOSITORY ↗</a></footer>
+  <main>
+    <h1>LeadHub is now on Base44</h1>
+    <p>The scripts and collaborative paste workspace are available on one website.</p>
+    <p><a href="https://cyber-patriot-lead-hub-40214cf8.base44.app/">Open the new LeadHub</a></p>
   </main>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  
 </body>
 </html>
