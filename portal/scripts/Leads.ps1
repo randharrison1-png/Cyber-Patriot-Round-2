@@ -997,7 +997,8 @@ if ($IsServer) {
             Note "Role/feature: $($f.Name)"
             foreach ($rule in $serverRules) {
                 if ($f.Name -match $rule.M) {
-                    Add-Lead $rule.S "Server role or feature installed: $($f.Name)  ($($rule.T))" 'unneeded roles and features are a classic scored item' "Uninstall-WindowsFeature -Name $($f.Name)"                    break
+                    Add-Lead $rule.S "Server role or feature installed: $($f.Name)  ($($rule.T))" 'unneeded roles and features are a classic scored item' "Uninstall-WindowsFeature -Name $($f.Name)"
+                    break
                 }
             }
         }
