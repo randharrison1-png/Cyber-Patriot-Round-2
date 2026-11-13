@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f6">
+  <meta name="description" content="CyberPatriot scripts and a shared report workspace.">
+  <title>LeadHub — Scripts & reports</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script defer src="./config.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="./" aria-label="LeadHub home">
+        <span class="brand-mark"><i data-lucide="terminal-square" aria-hidden="true"></i></span>
+        <span>LeadHub</span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav aria-label="Main navigation" class="side-nav">
+        <button class="nav-button active" type="button" data-tab="library" aria-current="page"><i data-lucide="files" aria-hidden="true"></i> Library</button>
+        <button class="nav-button" type="button" data-tab="pastes"><i data-lucide="notebook-tabs" aria-hidden="true"></i> Pastes</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <p id="connection-label">Checking report storage</p>
+        <a href="https://github.com/randharrison1-png/Cyber-Patriot-Round-2" target="_blank" rel="noopener noreferrer"><i data-lucide="github" aria-hidden="true"></i> Source repository <i data-lucide="external-link" aria-hidden="true"></i></a>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <div class="breadcrumbs">Workspace <span>/</span> <strong id="crumb">Library</strong></div>
+        <a href="https://github.com/randharrison1-png/Cyber-Patriot-Round-2" target="_blank" rel="noopener noreferrer" class="top-link">View GitHub <i data-lucide="external-link" aria-hidden="true"></i></a>
+      </header>
+
+      <main class="main-panel">
+        <div class="tab-bar" role="tablist" aria-label="Open workspaces">
+          <button type="button" role="tab" id="library-tab" class="panel-tab selected" aria-controls="library-panel" aria-selected="true" data-tab="library"><i data-lucide="files" aria-hidden="true"></i> Library</button>
+          <button type="button" role="tab" id="pastes-tab" class="panel-tab" aria-controls="pastes-panel" aria-selected="false" data-tab="pastes"><i data-lucide="notebook-tabs" aria-hidden="true"></i> Pastes</button>
+        </div>
+
+        <section id="library-panel" class="tab-panel" role="tabpanel" aria-labelledby="library-tab">
+          <div class="page-heading">
+            <div><h1>Script library</h1><p>Browse approved scripts and review their source before running anything.</p></div>
+            <span id="script-count" class="muted-count">5 scripts</span>
+          </div>
+          <div class="search-wrap">
+            <i data-lucide="search" aria-hidden="true"></i>
+            <input id="script-search" type="search" aria-label="Search scripts" placeholder="Search scripts by name, system, or purpose" autocomplete="off">
+            <kbd>/</kbd>
+          </div>
+          <div class="filter-row" aria-label="Filter scripts">
+            <button class="filter-button chosen" type="button" data-filter="all">All</button>
+            <button class="filter-button" type="button" data-filter="windows">Windows</button>
+            <button class="filter-button" type="button" data-filter="linux">Linux</button>
+            <button class="filter-button" type="button" data-filter="lead-finder">Lead finders</button>
+            <button class="filter-button" type="button" data-filter="hardening">Hardening</button>
+          </div>
+          <div id="script-list" class="script-list" aria-live="polite"></div>
+          <div id="scripts-empty" class="empty-state" hidden><i data-lucide="search-x" aria-hidden="true"></i><strong>No matching scripts</strong><p>Change your search or select another filter.</p></div>
+        </section>
+
+        <section id="pastes-panel" class="tab-panel" role="tabpanel" aria-labelledby="pastes-tab" hidden>
+          <div class="page-heading">
+            <div><h1>Shared pastes</h1><p>Save a report and share its link. Anyone with that link can read and edit it.</p></div>
+            <button id="new-paste" type="button" class="button primary"><i data-lucide="plus" aria-hidden="true"></i> New paste</button>
+          </div>
+          <div class="storage-banner" id="storage-banner" hidden role="status">
+            <i data-lucide="database" aria-hidden="true"></i>
+            <div><strong>Shared storage not connected</strong><p>Local drafts work in this browser. To share across devices, connect Supabase using the repository setup guide.</p></div>
+          </div>
+
+          <div class="paste-grid">
+            <section class="paste-list-panel" aria-label="Recent pastes on this device">
+              <div class="panel-heading"><h2>Recent reports</h2><span id="recent-count">0</span></div>
+              <div class="search-wrap small"><i data-lucide="search" aria-hidden="true"></i><input type="search" id="paste-search" placeholder="Search your recent reports" aria-label="Search recent reports"></div>
+              <div id="recent-list" class="recent-list" aria-live="polite"></div>
+              <div class="divider"></div>
+              <label for="open-id">Open a shared report</label>
+              <div class="open-row"><input id="open-id" type="text" placeholder="Paste URL or report ID"><button id="open-paste" type="button" class="button secondary">Open</button></div>
+            </section>
+
+            <section class="editor-panel" aria-label="Paste editor">
+              <div class="editor-toolbar"><div class="editor-heading"><i data-lucide="file-text" aria-hidden="true"></i> Report editor</div><span id="editor-state" role="status">New draft</span></div>
+              <label for="paste-title">Title</label>
+              <input type="text" maxlength="100" id="paste-title" placeholder="e.g. Windows Server 2022 — Findings" autocomplete="off">
+              <div class="editor-label"><label for="paste-body">Report content</label><span id="char-count">0 characters</span></div>
+              <textarea id="paste-body" spellcheck="false" placeholder="Paste your audit results here, or import a text file."></textarea>
+              <div id="remote-warning" class="warning" hidden><span>A newer revision was saved elsewhere. Load the latest version before saving.</span><button id="load-remote" type="button" class="button secondary">Load latest</button></div>
+              <div id="share-panel" class="share-panel" hidden>
+                <label for="share-url">Shareable edit link</label>
+                <div class="open-row"><input id="share-url" readonly><button id="copy-link" type="button" class="button secondary"><i data-lucide="copy" aria-hidden="true"></i> Copy</button></div>
+                <p>Anyone who has this link can read and edit the report.</p>
+              </div>
+              <div class="editor-actions">
+                <div class="group">
+                  <input id="file-import" type="file" accept=".txt,.log,.md,.out,.csv,text/plain" hidden>
+                  <button id="import-paste" type="button" class="button secondary"><i data-lucide="upload" aria-hidden="true"></i> Import</button>
+                  <button id="export-paste" type="button" class="button secondary"><i data-lucide="download" aria-hidden="true"></i> Export</button>
+                </div>
+                <button id="save-paste" type="button" class="button primary"><i data-lucide="save" aria-hidden="true"></i> <span id="save-label">Save draft</span></button>
+              </div>
+            </section>
+          </div>
+          <p class="privacy-note"><i data-lucide="shield-alert" aria-hidden="true"></i> Remove passwords, API keys, private data, and sensitive system details before sharing reports.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="source-dialog" aria-labelledby="source-title">
+    <div class="dialog-heading"><div><h2 id="source-title">Script source</h2><p id="source-subtitle"></p></div><button id="close-source" class="icon-button" type="button" aria-label="Close source viewer"><i data-lucide="x" aria-hidden="true"></i></button></div>
+    <pre id="source-content">Loading source…</pre>
+    <div class="dialog-actions"><a id="source-github" class="button secondary" target="_blank" rel="noopener noreferrer">Open on GitHub</a><button id="download-source" type="button" class="button primary">Download</button></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
