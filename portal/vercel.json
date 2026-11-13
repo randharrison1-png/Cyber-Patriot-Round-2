@@ -1,16 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "functions": {
-    "api/paste.js": { "maxDuration": 30 }
-  },
-  "headers": [
+  "redirects": [
     {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" }
-      ]
+      "source": "/:path*",
+      "destination": "https://cyber-patriot-lead-hub-40214cf8.base44.app",
+      "permanent": true
     }
   ]
 }
